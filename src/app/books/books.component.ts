@@ -7,6 +7,7 @@ import { BOOKS } from '../mock-books';
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css']
 })
+
 export class BooksComponent implements OnInit {
 
   books = BOOKS;
