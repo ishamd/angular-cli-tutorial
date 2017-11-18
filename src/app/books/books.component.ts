@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Book } from '../book';
 import { BookService } from '../book.service';
 
@@ -10,9 +11,15 @@ import { BookService } from '../book.service';
 
 export class BooksComponent implements OnInit {
 
+  selectedBook: Book;
+
   books: Book[];
 
-  selectedBook: Book;
+  constructor(private bookService: BookService) { }
+
+  ngOnInit() {
+    this.getBooks();
+  }
 
   onSelect(book: Book): void {
     this.selectedBook = book;
@@ -23,12 +30,5 @@ export class BooksComponent implements OnInit {
     .subscribe(books => this.books = books);
     // this.books = this.bookService.getBooks();
   }
-
-  constructor(private bookService: BookService) { }
-
-  ngOnInit() {
-    this.getBooks();
-  }
-
 
 }
