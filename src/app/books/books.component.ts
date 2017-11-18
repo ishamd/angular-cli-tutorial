@@ -10,9 +10,6 @@ import { BookService } from '../book.service';
 })
 
 export class BooksComponent implements OnInit {
-
-  selectedBook: Book;
-
   books: Book[];
 
   constructor(private bookService: BookService) { }
@@ -21,14 +18,15 @@ export class BooksComponent implements OnInit {
     this.getBooks();
   }
 
-  onSelect(book: Book): void {
-    this.selectedBook = book;
-  }
-
   getBooks(): void {
     this.bookService.getBooks()
     .subscribe(books => this.books = books);
-    // this.books = this.bookService.getBooks();
   }
 
+  // Removed after adding book-detail route:
+
+  // selectedBook: Book;
+  // onSelect(book: Book): void {
+  //   this.selectedBook = book;
+  // }
 }

@@ -20,5 +20,11 @@ export class BookService {
     return of(BOOKS);
   }
 
+  getBook(id: number): Observable<Book> {
+    // Todo: send the message _after_ fetching the book
+    this.messageService.add(`BookService: fetched book id=${id}`);
+    return of(BOOKS.find(book => book.id === id));
+  }
+
 
 }
