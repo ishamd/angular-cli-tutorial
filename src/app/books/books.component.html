@@ -2,7 +2,8 @@
 <ul class="books">
   <!-- the *ngFor is Angular's repeater directive -->
   <li *ngFor="let book of books">
-    <a routerLink="/detail/{{book.id}}"></a>
+    <a routerLink="/detail/{{book.id}}">
     <span class="badge">{{book.id}}</span> {{book.name}}
+    </a>
   </li>
 </ul>
